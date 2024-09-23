@@ -19,11 +19,12 @@ function maximizeSize(inputNumber) {
 }
 
 function selectCell(cellEl) {
-    if (cellEl.classList.contains('selected')) {
-        cellEl.classList.remove('selected')
-    } else {
-        cellEl.classList.add('selected')
-    }
+    // if (cellEl.classList.contains('selected')) {
+    //     cellEl.classList.remove('selected')
+    // } else {
+    //     cellEl.classList.add('selected')
+    // }
+    cellEl.classList.toggle('selected')
 }
 
 inputEl.addEventListener('input', (event) => {
@@ -40,15 +41,36 @@ inputEl.addEventListener('input', (event) => {
             cellEl.dataset['x'] = j;
             cellEl.dataset['y'] = i;
 
-            cellEl.addEventListener('click', (e) => {
-                selectCell(cellEl);
-            })
+            // @note Possible memory leak
+            // cellEl.addEventListener('click', (e) => {
+            //     selectCell(cellEl);
+            // })
 
             rowEl.append(cellEl)
         }
         tableEl.append(rowEl);
     }
 })
+
+// @note ForEach will always execute on an empty array
+// document
+//     .querySelectorAll('.cell')
+//     .forEach((cellEl) => {
+//         cellEl.addEventListener('click', (e) => {
+//             console.log('Cell clicked');
+//         })
+//     })
+
+// tableEl.addEventListener('click', (event) => {
+//     if (event.target.matches('td.cell')) {
+//         selectCell(event.target);
+//     }
+// })
+
+delegate(tableEl, 'click', '.cell', (e) => {
+    selectCell(e.target);
+})
+
 
 
 
