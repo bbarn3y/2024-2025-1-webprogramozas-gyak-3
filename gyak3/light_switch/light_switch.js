@@ -30,3 +30,31 @@ Amennyiben a villany ég, a linkek ne legyenek kattinthatóak, azzaz klikk eset�
 const containerEl = document.querySelector('#container');
 const casingEl = document.querySelector('.casing');
 const switchEl = document.querySelector('.switch');
+
+casingEl.addEventListener('click', (e) => {
+    if (e.target.matches('a') && switchEl.classList.contains('on')) {
+        e.preventDefault();
+    } else {
+        alert('Hoppá, majdnem eltaláltad a kapcsolót, de pont nem!');
+    }
+})
+
+switchEl.addEventListener('click', (e) => {
+    e.stopPropagation();
+
+    switchEl.classList.toggle('on')
+
+    containerEl.style.backgroundColor =
+        switchEl.classList.contains('on')
+            ? 'yellow'
+            : 'black';
+})
+
+
+
+
+
+
+
+
+
