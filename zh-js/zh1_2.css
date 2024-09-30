@@ -1,0 +1,134 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+#smileyContainer {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color: rgb(255, 235, 59);
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Eyes */
+.eyes {
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    top: 80px;
+    left: 50px;
+    right: 50px;
+}
+
+.eye {
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+
+.eye input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.eye span.outer-eye {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+/* When checkbox is checked (open eye) */
+.eye input:checked + span.outer-eye {
+    background-color: #000;
+    border: 2px solid #000;
+}
+
+/* When checkbox is unchecked (wink eye) */
+.eye input:not(:checked) + span.outer-eye::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 40px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.eye input:not(:checked) ~ span.inner-eye {
+    width: 20px;
+    height: 20px;
+    background: lightseagreen;
+    display: block;
+    border-radius: 10px;
+    position: absolute;
+    top: 15px;
+    left: 23px;
+}
+
+/* Mouth/Teeth */
+.mouth {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.mouth .frown {
+    display: inline-flex;
+    overflow: hidden;
+    width: 180px;
+    height: 40px;
+    background: #fff;
+    border-radius: 40px 40px 0 0;
+    border: 3px solid #000;
+    text-align: center;
+    font-size: 18px;
+    padding-top: 10px;
+    outline: none;
+    box-shadow: none;
+}
+
+.mouth .frown .teeth {
+    border-right: 1px solid black;
+    height: calc(100% + 20px);
+    margin-top: -20px;
+    flex-grow: 1;
+}
+
+.button-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.rotating {
+    animation: rotate 2s linear infinite;
+    animation-play-state: running;
+}
+
+.paused {
+    animation-play-state: paused;
+}
