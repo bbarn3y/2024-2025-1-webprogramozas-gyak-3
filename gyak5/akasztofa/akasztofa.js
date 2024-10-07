@@ -23,11 +23,15 @@ const word = 'akasztófa';
 const guesses = new Set();
 
 function guess(char) {
+    guesses.add(char);
 
+    refreshWord();
 }
 
 function refreshWord() {
-
+    wordEl.innerHTML = word.split('').map((c) =>
+        `<span>${guesses.has(c) ? c : ''}</span>`
+    ).join('')
 }
 
 function refreshScore() {
@@ -37,6 +41,8 @@ function refreshScore() {
 function refreshSvg() {
 
 }
+
+refreshWord();
 
 document.addEventListener('keypress', (event) => {
     // console.log(event);
