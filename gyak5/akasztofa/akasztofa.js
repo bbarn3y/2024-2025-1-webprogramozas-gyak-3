@@ -28,19 +28,25 @@ function guess(char) {
     refreshWord();
     refreshScore();
     refreshSvg();
+
+    if (playerWon()) {
+        wordEl.classList.add('nyer');
+    }
 }
 
 function playerLost() {
-
+    return wrongGuesses() >= 9;
 }
 
 function playerWon() {
-
+    return word.split('').every(c => guesses.has(c));
 }
 
 function refreshWord() {
     wordEl.innerHTML = word.split('').map((c) =>
-        `<span>${guesses.has(c) ? c : ''}</span>`
+        `<span ${playerLost() && !guesses.has(c) ? 'class="hianyzo"' : ''}>
+            ${guesses.has(c) || playerLost() ? c : ''}
+        </span>`
     ).join('')
 }
 
@@ -60,6 +66,9 @@ function wrongGuesses() {
 }
 
 document.addEventListener('keypress', (event) => {
+    if (playerLost()) {
+        return;
+    }
     // console.log(event);
     const char = event.key;
 
