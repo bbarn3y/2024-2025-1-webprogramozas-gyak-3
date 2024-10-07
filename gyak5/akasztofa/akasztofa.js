@@ -30,6 +30,14 @@ function guess(char) {
     refreshSvg();
 }
 
+function playerLost() {
+
+}
+
+function playerWon() {
+
+}
+
 function refreshWord() {
     wordEl.innerHTML = word.split('').map((c) =>
         `<span>${guesses.has(c) ? c : ''}</span>`
