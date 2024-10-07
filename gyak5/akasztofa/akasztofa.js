@@ -27,6 +27,7 @@ function guess(char) {
 
     refreshWord();
     refreshScore();
+    refreshSvg();
 }
 
 function refreshWord() {
@@ -40,7 +41,9 @@ function refreshScore() {
 }
 
 function refreshSvg() {
-
+    for (let i = 0; i < wrongGuesses(); i++) {
+        svgEl.children[i].classList.add('rajzol');
+    }
 }
 
 function wrongGuesses() {
