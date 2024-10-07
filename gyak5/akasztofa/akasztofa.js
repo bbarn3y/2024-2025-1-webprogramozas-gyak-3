@@ -26,6 +26,7 @@ function guess(char) {
     guesses.add(char);
 
     refreshWord();
+    refreshScore();
 }
 
 function refreshWord() {
@@ -35,14 +36,17 @@ function refreshWord() {
 }
 
 function refreshScore() {
-
+    scoreEl.innerHTML = `${wrongGuesses()}/9`
 }
 
 function refreshSvg() {
 
 }
 
-refreshWord();
+function wrongGuesses() {
+    return [...guesses].reduce((acc, c) =>
+        word.includes(c) ? acc : acc + 1, 0)
+}
 
 document.addEventListener('keypress', (event) => {
     // console.log(event);
@@ -51,6 +55,6 @@ document.addEventListener('keypress', (event) => {
     guess(event.key);
 });
 
-
-
+refreshWord();
+refreshScore();
 
