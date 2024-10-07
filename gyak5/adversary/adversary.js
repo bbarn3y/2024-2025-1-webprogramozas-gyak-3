@@ -74,3 +74,11 @@ delegate(containerEl, 'click', '.cell', (event) => {
 });
 
 // @todo The adversary should guess a number in a loop
+adversaryGuess();
+window.setInterval(() => {
+    adversaryGuess();
+}, 2000);
+
+// window.setTimeout(() => {
+//     adversaryGuess();
+// }, 2000)
