@@ -11,3 +11,31 @@ class Column {
     }
 }
 
+const canvas = document.getElementById('flappyCanvas');
+const context = canvas.getContext('2d');
+
+function cycle() {
+
+}
+
+function draw() {
+    context.fillStyle = 'lightblue';
+    context.fillRect(0, 0, canvas.width, canvas.height);
+
+    // context.beginPath();
+    // context.moveTo(200, 200);
+    // context.lineTo(100, 300);
+    // context.lineTo(300, 300);
+    // context.lineTo(200, 200);
+    // context.closePath();
+    // context.stroke();
+    //
+    // context.clearRect(100, 300, 100, 75);
+}
+
+function update() {
+
+}
+
+draw();
+
