@@ -3,7 +3,25 @@ function random(a, b) {
 }
 
 class Bird {
-    constructor() {}
+    constructor(context, x, y, width, height, velocity, acceleration) {
+        this.context = context;
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+        this.velocity = velocity;
+        this.acceleration = acceleration;
+        this.image = new Image();
+        this.image.src = './assets/bird.png';
+    }
+
+    draw() {
+        context.drawImage(this.image, this.x, this.y, this.width, this.height);
+    }
+
+    update(dt) {
+
+    }
 }
 
 class Column {
@@ -15,6 +33,8 @@ const canvas = document.getElementById('flappyCanvas');
 const context = canvas.getContext('2d');
 
 let lastCycleTime = performance.now(); // (new Date()).now();
+
+const bird = new Bird(context, 50, 175, 64, 48, 100, 70);
 
 function cycle(now = performance.now()) {
     const dt = now - lastCycleTime;
@@ -29,6 +49,8 @@ function cycle(now = performance.now()) {
 function draw() {
     context.fillStyle = 'lightblue';
     context.fillRect(0, 0, canvas.width, canvas.height);
+
+    bird.draw();
 
     // context.beginPath();
     // context.moveTo(200, 200);
