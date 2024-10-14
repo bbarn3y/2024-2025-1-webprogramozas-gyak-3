@@ -36,7 +36,22 @@ class Bird {
 }
 
 class Column {
-    constructor() {
+    constructor(context, x, y, width, height, velocity) {
+        this.context = context;
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+        this.velocity = velocity;
+    }
+
+    draw() {
+        context.fillStyle = 'green';
+        context.fillRect(this.x, this.y, this.width, this.height);
+    }
+
+    update(dt) {
+        this.x -= this.velocity * dt / 1000;
     }
 }
 
@@ -47,6 +62,19 @@ let lastCycleTime = performance.now(); // (new Date()).now();
 let gameOver = false;
 
 const bird = new Bird(context, 50, 175, 64, 48, 100, 70);
+
+const columns = [];
+const columnGap = 175;
+const columnDistance = 200;
+
+function addColumn() {
+    const topColumnHeight = random(75, 175);
+    columns.push(
+        new Column(context, canvas.width, 0, 40, topColumnHeight, 100),
+        new Column(context, canvas.width, topColumnHeight + columnGap,
+            40, canvas.height - topColumnHeight - columnGap, 100),
+    )
+}
 
 function cycle(now = performance.now()) {
     const dt = now - lastCycleTime;
@@ -70,6 +98,7 @@ function draw() {
     context.fillRect(0, 0, canvas.width, canvas.height);
 
     bird.draw();
+    columns.forEach((c) => c.draw());
 
     // context.beginPath();
     // context.moveTo(200, 200);
@@ -84,7 +113,9 @@ function draw() {
 
 function update(dt) {
     bird.update(dt);
+    columns.forEach((c) => c.update(dt));
 }
 
+addColumn();
 cycle();
 
