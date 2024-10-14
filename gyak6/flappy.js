@@ -32,6 +32,9 @@ class Bird {
         if (this.y >= canvas.height - this.height || this.y < 0) {
             gameOver = true;
         }
+        if (columns.some(c => rectanglesCollide(c, this))) {
+            gameOver = true;
+        }
     }
 }
 
@@ -63,7 +66,7 @@ let gameOver = false;
 
 const bird = new Bird(context, 50, 175, 64, 48, 100, 70);
 
-const columns = [];
+let columns = [];
 const columnGap = 175;
 const columnDistance = 200;
 
@@ -114,6 +117,21 @@ function draw() {
 function update(dt) {
     bird.update(dt);
     columns.forEach((c) => c.update(dt));
+
+    columns = columns.filter((c) => c.x >= -c.width);
+
+    if (columns.every((c) => c.x <= canvas.width - columnDistance)) {
+        addColumn();
+    }
+
+    // console.log(columns);
+}
+
+function rectanglesCollide(rect1, rect2) {
+    return rect1.x <= rect2.x + rect2.width &&
+        rect1.x + rect1.width >= rect2.x &&
+        rect1.y <= rect2.y + rect2.height &&
+        rect1.y + rect1.height >= rect2.y;
 }
 
 addColumn();
