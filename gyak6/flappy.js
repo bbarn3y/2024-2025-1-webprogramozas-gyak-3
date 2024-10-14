@@ -2,6 +2,12 @@ function random(a, b) {
     return Math.floor(Math.random() * (b - a + 1)) + a;
 }
 
+document.addEventListener('keydown', (e) => {
+    if (e.code === 'Space') {
+        bird.velocity -= 100;
+    }
+})
+
 class Bird {
     constructor(context, x, y, width, height, velocity, acceleration) {
         this.context = context;
@@ -20,7 +26,8 @@ class Bird {
     }
 
     update(dt) {
-
+        this.velocity += this.acceleration * dt / 1000;
+        this.y += this.velocity * dt / 1000;
     }
 }
 
@@ -64,7 +71,7 @@ function draw() {
 }
 
 function update(dt) {
-
+    bird.update(dt);
 }
 
 cycle();
