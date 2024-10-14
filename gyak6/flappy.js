@@ -14,8 +14,16 @@ class Column {
 const canvas = document.getElementById('flappyCanvas');
 const context = canvas.getContext('2d');
 
-function cycle() {
+let lastCycleTime = performance.now(); // (new Date()).now();
 
+function cycle(now = performance.now()) {
+    const dt = now - lastCycleTime;
+    lastCycleTime = now;
+
+    update(dt);
+    draw();
+
+    requestAnimationFrame(cycle);
 }
 
 function draw() {
@@ -33,9 +41,9 @@ function draw() {
     // context.clearRect(100, 300, 100, 75);
 }
 
-function update() {
+function update(dt) {
 
 }
 
-draw();
+cycle();
 
