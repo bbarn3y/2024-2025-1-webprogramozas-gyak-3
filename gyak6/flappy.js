@@ -28,6 +28,10 @@ class Bird {
     update(dt) {
         this.velocity += this.acceleration * dt / 1000;
         this.y += this.velocity * dt / 1000;
+
+        if (this.y >= canvas.height - this.height || this.y < 0) {
+            gameOver = true;
+        }
     }
 }
 
@@ -40,6 +44,7 @@ const canvas = document.getElementById('flappyCanvas');
 const context = canvas.getContext('2d');
 
 let lastCycleTime = performance.now(); // (new Date()).now();
+let gameOver = false;
 
 const bird = new Bird(context, 50, 175, 64, 48, 100, 70);
 
@@ -49,6 +54,13 @@ function cycle(now = performance.now()) {
 
     update(dt);
     draw();
+
+    if (gameOver) {
+        context.font = '50px Arial';
+        context.fillStyle = 'red';
+        context.fillText('Game Over!', 200, 175);
+        return;
+    }
 
     requestAnimationFrame(cycle);
 }
