@@ -6,8 +6,13 @@ $number = $_GET['number'] ?? $_POST['number'] ?? NULL;
 
 $errors = [];
 
-if (!$number) {
+if ($number == NULL || $number == '') { // !$number
     $errors[] = 'Please provide a number!';
+}
+if (!is_numeric($number)) {
+    $errors[] = 'Number is not a number!';
+} else if ($number < 0) {
+    $errors[] = 'Number must be larger than 0';
 }
 
 ?>
