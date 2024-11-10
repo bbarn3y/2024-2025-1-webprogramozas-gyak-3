@@ -1,0 +1,26 @@
+{
+    "6595cac2b5e2b": {
+        "name": "Álmost There",
+        "desc": "As Álmos Árpád, form Hungary and convert to Christianity.",
+        "game": "6595c8673b666",
+        "id": "6595cac2b5e2b"
+    },
+    "6595cac2b5e2f": {
+        "name": "A Perfect Circle",
+        "desc": "Have only two distinct parents, grandparents, and great grandparents, counting absent ancestors as individual Characters.",
+        "game": "6595c8673b666",
+        "id": "6595cac2b5e2f"
+    },
+    "6595cac2b5e32": {
+        "name": "Better than the Szent István",
+        "desc": "As Hungary, have Miklos Horthy as a Naval commander and build a battleship.",
+        "game": "6595c8673b661",
+        "id": "6595cac2b5e32"
+    },
+    "6595cac2b5e35": {
+        "name": "Oathbreakers",
+        "desc": "Reanimate 250,000 bloons to fight on your side using the Necromancer Wizard.",
+        "game": "6595c8673b65a",
+        "id": "6595cac2b5e35"
+    }
+}
