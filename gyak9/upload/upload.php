@@ -1,5 +1,10 @@
 <?php
+// print_r($_FILES);
 
+if (!empty($_FILES)) {
+    $fileContent = file_get_contents($_FILES['thefile']['tmp_name']);
+    echo nl2br($fileContent);
+}
 ?>
 
 <form method="post" action="upload.php" enctype="multipart/form-data">

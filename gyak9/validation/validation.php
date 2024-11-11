@@ -41,7 +41,8 @@ if (!empty($_POST)) {
 <form method="post">
     <div>
         <label for="email">Email:</label>
-        <input id="email" name="email">
+        <input id="email" name="email"
+               value="<?= isset($_POST['email']) ? $_POST['email'] : '' ?>">
     </div>
     <?php if(isset($errors['email'])): ?>
         <div style="color: red"><?= $errors['email'] ?></div>
@@ -55,7 +56,10 @@ if (!empty($_POST)) {
             <input id="PHP"
                    type="checkbox"
                    name="sessions[]"
-                   value="PHP">
+                   value="PHP"
+                   <?= (isset($_POST['sessions']) &&
+                       in_array("PHP", $_POST["sessions"])) ? 'checked' : '' ?>
+            >
         </div>
 
         <div>
@@ -63,7 +67,10 @@ if (!empty($_POST)) {
             <input id="JavaScript"
                    type="checkbox"
                    name="sessions[]"
-                   value="JavaScript">
+                   value="JavaScript"
+                <?= (isset($_POST['sessions']) &&
+                    in_array("JavaScript", $_POST["sessions"])) ? 'checked' : '' ?>
+            >
         </div>
 
         <div>
@@ -71,7 +78,10 @@ if (!empty($_POST)) {
             <input id="design"
                    type="checkbox"
                    name="sessions[]"
-                   value="design">
+                   value="design"
+                <?= (isset($_POST['sessions']) &&
+                    in_array("design", $_POST["sessions"])) ? 'checked' : '' ?>
+            >
         </div>
     </div>
     <?php if(isset($errors['sessions'])): ?>
@@ -86,7 +96,9 @@ if (!empty($_POST)) {
             <input id="yes"
                    type="radio"
                    name="attendance"
-                   value="true">
+                   value="true"
+                  <?= (isset($_POST['attendance']) && $_POST['attendance'] == "true") ? 'checked' : '' ?>
+            >
         </div>
 
         <div>
@@ -94,7 +106,9 @@ if (!empty($_POST)) {
             <input id="no"
                    type="radio"
                    name="attendance"
-                   value="false">
+                   value="false"
+                <?= (isset($_POST['attendance']) && $_POST['attendance'] == "false") ? 'checked' : '' ?>
+            >
         </div>
 
         <div>
@@ -102,7 +116,9 @@ if (!empty($_POST)) {
             <input id="maybe"
                    type="radio"
                    name="attendance"
-                   value="other">
+                   value="other"
+                <?= (isset($_POST['attendance']) && $_POST['attendance'] == "other") ? 'checked' : '' ?>
+            >
         </div>
     </div>
     <?php if(isset($errors['attendance'])): ?>
