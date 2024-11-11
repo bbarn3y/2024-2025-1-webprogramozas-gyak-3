@@ -4,6 +4,25 @@ function validate($input, &$errors) {
     if (!isset($input['email']) ||
         !filter_var($input['email'], FILTER_VALIDATE_EMAIL)) {
         $errors['email'] = 'Please provide a valid e-mail address';
+    } else if (!filter_var($input['email'], FILTER_VALIDATE_REGEXP, [
+        "options" => [
+                // ^([0-9a-zA-ZáéÁÉ]{8})-([0-9]{8})(-[0-9]{8})?$
+                // 12345678-87654321-11223344
+                "regexp" => "/^a(.+)$/"
+        ]
+    ])) {
+        $errors['email'] = 'The e-mail address must start with the character "a"!';
+    }
+
+    if (!isset($input['sessions']) || count($input['sessions']) < 2) {
+        $errors['sessions'] = 'Please select at least two sessions!';
+    }
+
+    if (!isset($input['attendance']) ||
+        filter_var($input['attendance'],
+            FILTER_VALIDATE_BOOL,
+            FILTER_NULL_ON_FAILURE) === NULL) {
+        $errors['attendance'] = 'Please select "yes" or "no"!';
     }
 
 }
@@ -55,6 +74,9 @@ if (!empty($_POST)) {
                    value="design">
         </div>
     </div>
+    <?php if(isset($errors['sessions'])): ?>
+        <div style="color: red"><?= $errors['sessions'] ?></div>
+    <?php endif; ?>
 
     <div>
         <p>How likely are you to attend?</p>
@@ -83,6 +105,9 @@ if (!empty($_POST)) {
                    value="other">
         </div>
     </div>
+    <?php if(isset($errors['attendance'])): ?>
+        <div style="color: red"><?= $errors['attendance'] ?></div>
+    <?php endif; ?>
 
     <button type="submit" style="margin-top: 20px;">Submit</button>
 
