@@ -34,3 +34,17 @@ fwrite(
 );
 
 fclose($adultPersonsToJSON);
+
+/**
+ * name,age
+ * Molnár Zalán, 20
+ */
+
+$adultPersonsToCSV = fopen("adultPersons.csv", "w");
+
+fwrite($adultPersonsToCSV, "name,age" . PHP_EOL);
+foreach($adultPersons as $adultPerson) {
+    fwrite($adultPersonsToCSV,
+        $adultPerson['name'] . "," . $adultPerson['age'] . PHP_EOL);
+}
+fclose($adultPersonsToCSV);
