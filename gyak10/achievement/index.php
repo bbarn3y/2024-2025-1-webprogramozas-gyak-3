@@ -1,3 +1,18 @@
+<?php
+
+require_once('Storage.php');
+
+$gameStorage = new Storage(new JsonIO('data_games.json'), false);
+$achievementStorage = new Storage(
+        new JsonIO('data_achievements.json'), false);
+
+$games = $gameStorage->findAll();
+$achievements = $achievementStorage->findAll();
+// print_r($games);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +30,7 @@
     </header>
 
     <div id="content">
-        <form novalidate>
+        <form novalidate action="add.php">
             <div class="input">
                 <label for="name">Teljesítmény neve / Achievement name</label>
                 <input type="text" name="name" id="name" placeholder="Teljesítmény neve / Achievement name">
@@ -27,8 +42,15 @@
             <div class="input">
                 <label for="game">Játék / Game</label>
                 <select name="game" id="game">
+                <?php foreach($games as $game): ?>
+                    <option value="<?= $game->id ?>">
+                        <?= $game->name ?>
+                    </option>
+                <?php endforeach; ?>
+                    <!--
                     <option value="6595c8673b661">Hearts of Iron IV</option>
                     <option value="6595c8673b666">Crusader Kings III</option>
+                    -->
                 </select>
             </div>
             <div class="input">
@@ -45,6 +67,22 @@
                 </tr>
             </thead>
             <tbody>
+            <?php foreach($achievements as $achievement): ?>
+                <tr>
+                    <td>
+                        <a href="game.php?id=<?= $achievement->game ?>">
+                            <?= $gameStorage->findOne(
+                                    ["id" => $achievement->game]
+                            )->name ?>
+                        </a>
+                    </td>
+                    <td><?= $achievement->name ?></td>
+                    <td>
+                        <?= $achievement->desc ?>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            <!--
                 <tr>
                     <td><a href="">Baldur's Gate 3</a></td>
                     <td>Teljesítmény 1</td>
@@ -77,6 +115,8 @@
                         sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
                     </td>
                 </tr>
+
+                -->
             </tbody>      
         </table>
     </div>
