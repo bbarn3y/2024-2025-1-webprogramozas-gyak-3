@@ -1,0 +1,110 @@
+{
+    "6595c8673b65a": {
+        "id": "6595c8673b65a",
+        "title": "11.22.63",
+        "cover": ".\/images\/11.22.63.jpg",
+        "categories": [
+            "sci-fi",
+            "time travel"
+        ]
+    },
+    "6595c8673b65b": {
+        "id": "6595c8673b65b",
+        "title": "A Man Called Ove",
+        "cover": ".\/images\/a_man_called_ove.jpg",
+        "categories": [
+            "drama"
+        ]
+    },
+    "6595c8673b65c": {
+        "id": "6595c8673b65c",
+        "title": "Hitchiker's Guide to the Galaxy",
+        "cover": ".\/images\/hitchhikers_guide_to_the_galaxy.webp",
+        "categories": [
+            "comedy"
+        ]
+    },
+    "6595c8673b65d": {
+        "id": "6595c8673b65d",
+        "title": "Masters of Doom",
+        "cover": ".\/images\/masters_of_doom.jpg",
+        "categories": [
+            "documentary"
+        ]
+    },
+    "6595c8673b65e": {
+        "id": "6595c8673b65e",
+        "title": "Mistborn: The Final Empire",
+        "cover": ".\/images\/mistborn.jpg",
+        "categories": [
+            "fantasy"
+        ]
+    },
+    "6595c8673b66a": {
+        "id": "6595c8673b66a",
+        "title": "Project Hail Mary",
+        "cover": ".\/images\/project_hail_mary.jpg",
+        "categories": [
+            "sci-fi"
+        ]
+    },
+    "6595c8673b66b": {
+        "id": "6595c8673b66b",
+        "title": "Storm Front",
+        "cover": ".\/images\/storm_front.jpg",
+        "categories": [
+            "horror",
+            "monster of the week"
+        ]
+    },
+    "6595c8673b66c": {
+        "id": "6595c8673b66c",
+        "title": "The Eye of the World",
+        "cover": ".\/images\/wheel_of_time.jpg",
+        "categories": [
+            "fantasy"
+        ]
+    },
+    "6595c8673b66d": {
+        "id": "6595c8673b66d",
+        "title": "The Lies of Locke Lamora",
+        "cover": ".\/images\/the_lies_of_locke_lamora.webp",
+        "categories": [
+            "dark fantasy"
+        ]
+    },
+    "6595c8673b66e": {
+        "id": "6595c8673b66e",
+        "title": "The Sandman",
+        "cover": ".\/images\/the_sandman.webp",
+        "categories": [
+            "dc",
+            "sci-fi"
+        ]
+    },
+    "6595c8673b66f": {
+        "id": "6595c8673b66f",
+        "title": "The Stormlight Archive: The Way of Kings",
+        "cover": ".\/images\/the_way_of_kings.jpg",
+        "categories": [
+            "dark fantasy"
+        ]
+    },
+    "6595c8673b67a": {
+        "id": "6595c8673b67a",
+        "title": "The Stormlight Archive: Words of Radience",
+        "cover": ".\/images\/words_of_radience.jpg",
+        "categories": [
+            "dark fantasy"
+        ]
+    },
+    "6595c8673b67b": {
+        "id": "6595c8673b67b",
+        "title": "We Are Legion (We Are Bob)",
+        "cover": ".\/images\/bobiverse.jpg",
+        "categories": [
+            "comedy",
+            "sci-fi"
+        ]
+    }
+}
