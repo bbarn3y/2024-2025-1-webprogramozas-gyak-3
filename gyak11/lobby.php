@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="style.css">
+
 Authenticated as:
 
 <button>User button</button>

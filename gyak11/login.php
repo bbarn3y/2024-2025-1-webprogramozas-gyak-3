@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="style.css">
+
 <form action="authenticator.php" method="post">
     <div>
         <label for="username">Username: </label><br>
