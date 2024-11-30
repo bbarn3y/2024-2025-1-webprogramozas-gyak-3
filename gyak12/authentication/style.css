@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Soft light gray background */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container styling for the form */
+form {
+    background-color: #ffffff; /* White background for contrast */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    width: 100%;
+    max-width: 350px;
+    box-sizing: border-box;
+}
+
+/* Styling for form labels */
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #333333; /* Dark gray text */
+    font-weight: bold;
+}
+
+/* Styling for form inputs */
+form input[type="text"],
+form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    color: #333333; /* Dark gray text */
+    background-color: #f9f9f9; /* Light gray background */
+    border: 1px solid #cccccc; /* Light gray border */
+    border-radius: 5px;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Input hover and focus effects */
+form input[type="text"]:focus,
+form input[type="password"]:focus {
+    background-color: #ffffff; /* Brighten background on focus */
+    border-color: #666666; /* Darker border for focus */
+}
+
+/* Styling for the submit button */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #333333; /* Dark gray button */
+    color: #ffffff; /* White text for contrast */
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Button hover and active effects */
+button:hover {
+    background-color: #555555; /* Slightly lighter gray on hover */
+}
+
+button:active {
+    transform: translateY(2px); /* Subtle press effect */
+}
+
+/* Adjustments for small screens */
+@media (max-width: 480px) {
+    form {
+        padding: 20px;
+    }
+}
