@@ -8,16 +8,31 @@
     <title>Task 4</title>
 </head>
 <body>
+<?php
+include_once 'Storage.php';
+$storage = new Storage(new JsonIO('recipes.json'));
+$recipe = $storage->findById($_GET['recipe']);
+
+session_start();
+?>
+
     <h1>Task 4: Recipe tracker</h1>
 
     <a href="index.php">← Back to recipes</a>
     
     <h2>Title</h2>
 
-    <form action="" method="POST">
-        
-        <input type="checkbox" id="ingredient1" name="ingredient1" checked disabled>
-        <label for="ingredient1">ingredient1</label>
+    <form action="save.php" method="POST">
+
+        <?php foreach($recipe as $ingredient): ?>
+        <div>
+        <input type="checkbox"
+               id="<?= $ingredient ?>"
+               name="<?= $ingredient ?>"
+               <?= in_array($ingredient, $_SESSION['fridge']) ? 'checked disabled' : '' ?>>
+        <label for="<?= $ingredient ?>"><?= $ingredient ?></label>
+        </div>
+        <?php endforeach; ?>
 
         <button type="submit">Save</button>
     </form>
